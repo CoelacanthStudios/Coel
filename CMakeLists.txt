@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.12)
 
-project(coel VERSION 0.0.1)
+project(coel VERSION 0.0.2)
 
-add_library(window STATIC "src/window/win32.cpp")
+add_library(coel_window STATIC "src/window/win32.cpp")
 
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
@@ -23,7 +23,7 @@ install(
     DESTINATION
         ${CMAKE_INSTALL_DATADIR}/coel)
 
-install(TARGETS window EXPORT coel-targets)
+install(TARGETS coel_window EXPORT coel-targets)
 install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(EXPORT coel-targets
     NAMESPACE coel::
