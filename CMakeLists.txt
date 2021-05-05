@@ -10,16 +10,6 @@ include(CMakePackageConfigHelpers)
 
 add_library(coel_window INTERFACE)
 target_compile_features(coel_window INTERFACE cxx_std_20)
-target_include_directories(coel_window
-    INTERFACE
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
-)
-if(BUILD_SHARED_LIBS AND WIN32)
-	target_compile_definitions(coel_window
-		PRIVATE "COEL_EXPORT=__declspec(dllexport)"
-		INTERFACE "COEL_EXPORT=__declspec(dllimport)")
-endif()
 
 configure_package_config_file(cmake/config.cmake.in
     ${CMAKE_CURRENT_BINARY_DIR}/coel-config.cmake
