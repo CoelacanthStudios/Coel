@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 
 project(coel 
-    VERSION 0.0.7
+    VERSION 0.0.8
     LANGUAGES CXX
 )
 
@@ -15,6 +15,12 @@ target_include_directories(coel_window
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
+
+option(COEL_BUILD_TESTS "Turn on to build tests" ON)
+
+if (COEL_BUILD_TESTS)
+    add_subdirectory(tests)
+endif()
 
 configure_package_config_file(cmake/config.cmake.in
     ${CMAKE_CURRENT_BINARY_DIR}/coel-config.cmake
