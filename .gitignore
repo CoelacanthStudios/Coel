@@ -1,0 +1,6 @@
+build/
+
+# IDE generated folders
+.vscode/
+.vs
+.out
