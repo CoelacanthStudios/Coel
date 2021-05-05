@@ -8,10 +8,10 @@ project(coel
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
-add_library(coel_window "src/window/win32.cpp")
-target_compile_features(coel_window PUBLIC cxx_std_20)
+add_library(coel_window INTERFACE)
+target_compile_features(coel_window INTERFACE cxx_std_20)
 target_include_directories(coel_window
-    PUBLIC
+    INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
